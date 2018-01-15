@@ -21,5 +21,9 @@
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "semi": [1, "never"],
       "no-shadow":"off",
+      "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Link" ],
+      "specialLink": [ "to" ]
+    }]
     }
   }
