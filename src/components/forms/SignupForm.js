@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import InlineError from '../messages/InlineError'
 
-class LoginForm extends React.Component {
+class SignupForm extends React.Component {
   state = {
     data: {
       email: '',
@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
       <Form onSubmit={this.onSubmit} loading={loading}>
         {errors.global && (
           <Message negative>
-            <Message.Header>Login Failed</Message.Header>
+            <Message.Header>Signup Failed</Message.Header>
             <p>{errors.global}</p>
           </Message>
         )}
@@ -81,13 +81,13 @@ class LoginForm extends React.Component {
 
           {errors.password && <InlineError text={errors.password} />}
         </Form.Field>
-        <Button primary>Login</Button>
+        <Button primary>Sign Up</Button>
       </Form>
     )
   }
 }
-LoginForm.propTypes = {
+SignupForm.propTypes = {
   submit: PropTypes.func.isRequired
 }
 
-export default LoginForm
+export default SignupForm

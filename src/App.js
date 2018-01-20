@@ -7,6 +7,9 @@ import LoginPage from './components/pages/LoginPage'
 import SignupPage from './components/pages/SignupPage'
 import ContactsPage from './components/pages/ContactsPage'
 
+import GuestRoute from './components/routes/GuestRoute'
+import UserRoute from './components/routes/UserRoute'
+
 const App = () => (
   <div className="ui container">
     <header className="App-header">
@@ -16,9 +19,9 @@ const App = () => (
     <BrowserRouter basename="/">
       <Switch>
         <Route path="/" exact component={HomePage} />
-        <Route path="/contacts" exact component={ContactsPage} />
-        <Route path="/login" exact component={LoginPage} />
-        <Route path="/signup" exact component={SignupPage} />
+        <UserRoute path="/contacts" exact component={ContactsPage} />
+        <GuestRoute path="/login" exact component={LoginPage} />
+        <GuestRoute path="/signup" exact component={SignupPage} />
       </Switch>
     </BrowserRouter>
   </div>

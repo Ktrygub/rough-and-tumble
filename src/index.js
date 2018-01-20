@@ -17,7 +17,7 @@ const store = createStore(
 )
 
 if (localStorage.RnT_JWT) {
-  const user = { token: localStorage.RnT_JWT }
+  const user = JSON.parse(localStorage.RnT_JWT)
   store.dispatch(userLoggedIn(user))
 }
 

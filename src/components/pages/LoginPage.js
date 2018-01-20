@@ -8,40 +8,21 @@ import { login } from '../../redux/actions/auth'
 
 class LoginPage extends React.Component {
   submit = data =>
-    this.props.login(data).then(() => this.props.history.push('/'))
+    this.props.login(data).then(() => this.props.history.push('/contacts'))
 
   render() {
-    // const { loggedIn } = this.props
-    // refactor in future:
-    // rename component to LoginRoute
-    // take out LoginPage representation to separate component
-    // return loogedIn ? <Redirect to="/dashboard" /> : <LoginPage />
-    // make same changes in DashboardRoute and maybe other routes
-    // return loggedIn ? (
-    //   <Redirect to="/dashboard" />
-    // ) : (
     return (
       <div>
         <h1>Login Page</h1>
         <LoginForm submit={this.submit} />
         <Link to="/">Back</Link> or {'link to forgot password'}
-        {/* <Link to="/forgot_password">Forgot Password?</Link> */}
       </div>
     )
-    // )
   }
 }
 LoginPage.propTypes = {
   login: PropTypes.func.isRequired,
   history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired
-  // loggedIn: PropTypes.bool
 }
-// LoginPage.defaultProps = {
-//   loggedIn: false
-// }
-
-// const mapStateToProps = state => ({
-//   loggedIn: !!state.user.token
-// })
 
 export default connect(null, { login })(LoginPage)

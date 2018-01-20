@@ -7,7 +7,13 @@ export const userLoggedOut = () => ({ type: USER_LOGGED_OUT })
 
 export const login = credentials => dispatch =>
   api.user.login(credentials).then(user => {
-    localStorage.RnT_JWT = user.token
+    localStorage.RnT_JWT = JSON.stringify(user)
+    dispatch(userLoggedIn(user))
+  })
+
+export const signup = credentials => dispatch =>
+  api.user.signup(credentials).then(user => {
+    localStorage.RnT_JWT = JSON.stringify(user)
     dispatch(userLoggedIn(user))
   })
 
